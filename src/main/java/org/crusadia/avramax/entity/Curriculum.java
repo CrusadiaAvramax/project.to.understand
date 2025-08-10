@@ -20,4 +20,6 @@ public class Curriculum extends PanacheEntity {
     // Relazione One to One con User
     @OneToOne(mappedBy = "curriculum")
     public User user;
+
+
 }
