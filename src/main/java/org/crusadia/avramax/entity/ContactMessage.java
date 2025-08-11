@@ -15,8 +15,9 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class ContactMessage extends PanacheEntity {
-    public String nome;
-    public String email;
-    public String testo;
-    public LocalDate dataInvio;
+
+    private String nome;
+    private String email;
+    private String testo;
+    private LocalDate dataInvio;
 }

@@ -3,7 +3,7 @@ package org.crusadia.avramax.service.impl;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
-import org.crusadia.avramax.dto.UserDto;
+import org.crusadia.avramax.dto.RegisterUserRequest;
 import org.crusadia.avramax.entity.User;
 import org.crusadia.avramax.mapper.UserMapper;
 import org.crusadia.avramax.repository.UserRepository;
@@ -19,8 +19,9 @@ public class UserServiceImpl implements UserService {
     @Inject
     UserMapper userMapper;
 
+
     @Override
-    public List<UserDto> getUsers() {
+    public List<RegisterUserRequest> getUsers() {
         return userRepository.findAll().stream()
                 .map((user)-> userMapper.toDto(user))
                 .toList();
@@ -28,9 +29,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public UserDto addUser(UserDto user) {
+    public RegisterUserRequest addUser(RegisterUserRequest user) {
         User userEntity = userMapper.toEntity(user);
         userRepository.persist(userEntity);
         return userMapper.toDto(userEntity);
     }
+
+
 }

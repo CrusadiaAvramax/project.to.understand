@@ -13,5 +13,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Categoria extends PanacheEntity {
-    public String nomeCategoria;
+
+    private String nomeCategoria;
 }

@@ -14,15 +14,16 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Portfolio extends PanacheEntity {
-    public String titolo;
-    public String descrizione;
-    public String imageUrl;
+
+    private String titolo;
+    private String descrizione;
+    private String imageUrl;
 
     // Relazione Many to One con User
     @ManyToOne
-    public User user;
+    private User user;
 
     // Relazione Many to One con Categoria
     @ManyToOne
-    public Categoria categoria;
+    private Categoria categoria;
 }

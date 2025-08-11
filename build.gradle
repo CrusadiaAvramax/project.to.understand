@@ -25,6 +25,16 @@ dependencies {
     testAnnotationProcessor 'org.projectlombok:lombok:1.18.30'
     implementation 'org.mapstruct:mapstruct:1.6.3'
     annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
+    implementation 'io.quarkus:quarkus-hibernate-validator'
+
+    // Security (Elytron JDBC)
+    implementation 'io.quarkus:quarkus-elytron-security-jdbc'
+
+    // JWT (SmallRye JWT)
+    implementation 'io.quarkus:quarkus-smallrye-jwt'
+
+    // BCrypt per hash delle password
+    implementation 'org.mindrot:jbcrypt:0.4'
 }
 
 group 'org.crusadia.avramax'

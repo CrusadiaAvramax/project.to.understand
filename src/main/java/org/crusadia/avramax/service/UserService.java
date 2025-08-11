@@ -1,14 +1,15 @@
 package org.crusadia.avramax.service;
 
 
-import org.crusadia.avramax.dto.UserDto;
+import org.crusadia.avramax.dto.RegisterUserRequest;
 
 import java.util.List;
 
 public interface UserService {
 
 
-    List<UserDto> getUsers();
+    List<RegisterUserRequest> getUsers();
 
-    UserDto addUser(UserDto user);
+    RegisterUserRequest addUser(RegisterUserRequest user);
+
 }

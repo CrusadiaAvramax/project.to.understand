@@ -14,12 +14,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Curriculum extends PanacheEntity {
-    public String fileUrl;
-    public String descrizione;
+
+    private String fileUrl;
+    private String descrizione;
 
     // Relazione One to One con User
     @OneToOne(mappedBy = "curriculum")
-    public User user;
+    private User user;
 
 
 }

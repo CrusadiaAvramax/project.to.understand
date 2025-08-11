@@ -14,10 +14,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Skill extends PanacheEntity {
-    public String nome; // Es: "Java", "Photoshop"
-    public String livello; // Es: "Esperto", "Intermedio"
+
+    private String nome; // Es: "Java", "Photoshop"
+    private String livello; // Es: "Esperto", "Intermedio"
 
     // Relazione Many to One con User
     @ManyToOne
-    public User user;
+    private User user;
 }
