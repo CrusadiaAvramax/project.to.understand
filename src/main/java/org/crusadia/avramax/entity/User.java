@@ -4,6 +4,7 @@ import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -16,21 +17,18 @@ import java.util.Set;
 @Table(name = "users")
 public class User extends PanacheEntity {
 
-    private String nome;
-    private String cognome;
-    @Column(nullable = false)
-    private String password;
-    @Column(nullable = false)
-    private Set<String> roles;
     @Column(unique = true, nullable = false)
+    private String username;
+
+    @Column(unique = true,nullable = false)
     private String email;
-    private String bio;
 
-    // Relazione One to Many con PortfolioItem
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    private List<Portfolio> portfolioItems;
+    @Column(nullable = false)
+    private String password; // Hashata con BCrypt
 
-    // Relazione One to One con Curriculum
-    @OneToOne(cascade = CascadeType.ALL)
-    private Curriculum curriculum;
+    @Column(nullable = false)
+    private String role; // "user", "admin"
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Order> orders = new ArrayList<>();
 }

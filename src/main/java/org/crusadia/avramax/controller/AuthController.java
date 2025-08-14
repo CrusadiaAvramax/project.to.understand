@@ -35,7 +35,6 @@ public class AuthController {
     public Response loginUtente(@Valid LoginUserRequest loginUserRequest) {
         LoginResponse loginResponse = authService.loginUser(loginUserRequest);
         return Response.ok()
-                .status(HttpResponseStatus.OK.code())
                 .entity(loginResponse)
                 .build();
 

@@ -9,9 +9,9 @@ public class JwtUtil {
                 .issuer("https://portfolio-be/issuer")
                 .upn(user.getEmail())
                 .claim("userId", user.id)
-                .claim("role", user.getRoles())
+                .claim("role", user.getRole())
                 .subject(user.id.toString())
-                .groups(String.join(", ", user.getRoles())) // utile per @RolesAllowed
+                .groups(user.getRole()) // utile per @RolesAllowed
                 .expiresIn(86400L) // 24h in secondi
                 .sign();
     }
