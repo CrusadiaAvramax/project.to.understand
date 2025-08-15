@@ -39,7 +39,7 @@ public class AuthServiceImpl implements AuthService {
         boolean verified = PasswordUtil.verifyPassword(loginUserRequest.getPassword(), user.getPassword());
         if (verified) {
             String token = JwtUtil.generateToken(user);
-            return new LoginResponse(token, user.getEmail());
+            return new LoginResponse(token, user.getUsername(),user.getEmail());
         }
         throw new AuthenticationException("La password non è corretta");
     }
