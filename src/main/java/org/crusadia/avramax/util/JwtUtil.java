@@ -3,9 +3,6 @@ package org.crusadia.avramax.util;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.smallrye.jwt.build.Jwt;
-import jakarta.json.Json;
-import jakarta.json.JsonObject;
-import jakarta.json.JsonReader;
 import org.crusadia.avramax.entity.User;
 
 import java.nio.charset.StandardCharsets;

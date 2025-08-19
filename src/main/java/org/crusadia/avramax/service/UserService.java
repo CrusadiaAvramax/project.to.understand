@@ -2,7 +2,6 @@ package org.crusadia.avramax.service;
 
 
 import org.crusadia.avramax.dto.UserDto;
-import org.crusadia.avramax.dto.auth.RegisterUserRequest;
 
 import java.util.List;
 

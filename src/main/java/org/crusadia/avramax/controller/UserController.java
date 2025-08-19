@@ -2,11 +2,13 @@ package org.crusadia.avramax.controller;
 
 
 import jakarta.inject.Inject;
-import jakarta.ws.rs.*;
+import jakarta.ws.rs.GET;
+import jakarta.ws.rs.HeaderParam;
+import jakarta.ws.rs.Path;
+import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import lombok.RequiredArgsConstructor;
 import org.crusadia.avramax.dto.UserDto;
-import org.crusadia.avramax.dto.auth.RegisterUserRequest;
 import org.crusadia.avramax.service.UserService;
 
 import java.util.List;
