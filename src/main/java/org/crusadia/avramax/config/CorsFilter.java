@@ -1,26 +1,17 @@
 package org.crusadia.avramax.config;
 
-import io.vertx.ext.web.Router;
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.enterprise.event.Observes;
+import jakarta.ws.rs.container.ContainerRequestContext;
+import jakarta.ws.rs.container.ContainerResponseContext;
+import jakarta.ws.rs.container.ContainerResponseFilter;
+import jakarta.ws.rs.ext.Provider;
 
-
-@ApplicationScoped
-public class CorsFilter {
-
-    void onStart(@Observes Router router) {
-        router.route().handler(rc -> {
-            rc.response()
-                    .putHeader("Access-Control-Allow-Origin", "http://localhost:4200")
-                    .putHeader("Access-Control-Allow-Credentials", "true")
-                    .putHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-                    .putHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-
-            if ("OPTIONS".equalsIgnoreCase(rc.request().method().name())) {
-                rc.response().setStatusCode(204).end();
-            } else {
-                rc.next();
-            }
-        });
+@Provider
+public class CorsFilter implements ContainerResponseFilter {
+    @Override
+    public void filter(ContainerRequestContext requestContext, ContainerResponseContext responseContext) {
+        responseContext.getHeaders().add("Access-Control-Allow-Origin", "http://localhost:4200");
+        responseContext.getHeaders().add("Access-Control-Allow-Credentials", "true");
+        responseContext.getHeaders().add("Access-Control-Allow-Headers", "origin, content-type, accept, authorization");
+        responseContext.getHeaders().add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD");
     }
 }

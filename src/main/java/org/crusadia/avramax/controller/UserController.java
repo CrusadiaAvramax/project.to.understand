@@ -5,28 +5,30 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import lombok.RequiredArgsConstructor;
-import org.crusadia.avramax.dto.RegisterUserRequest;
+import org.crusadia.avramax.dto.UserDto;
+import org.crusadia.avramax.dto.auth.RegisterUserRequest;
 import org.crusadia.avramax.service.UserService;
 
 import java.util.List;
 
-@Path("/user")
+@Path("/api/user")
 @RequiredArgsConstructor
 public class UserController {
     @Inject
     UserService userService;
 
     @GET
+    @Path("/users")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<RegisterUserRequest> getUsers() {
+    public List<UserDto> getUsers() {
        return userService.getUsers();
     }
 
-    @POST
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Consumes(MediaType.APPLICATION_JSON)
-    public RegisterUserRequest addUser(RegisterUserRequest user) {
-        return userService.addUser(user);
+    public UserDto getUser(@HeaderParam("Authorization") String token) {
+        return userService.getUser(token);
     }
+
 
 }

@@ -1,4 +1,4 @@
-package org.crusadia.avramax.dto;
+package org.crusadia.avramax.dto.auth;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

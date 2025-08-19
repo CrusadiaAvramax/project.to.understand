@@ -8,9 +8,9 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.crusadia.avramax.dto.LoginResponse;
-import org.crusadia.avramax.dto.LoginUserRequest;
-import org.crusadia.avramax.dto.RegisterUserRequest;
+import org.crusadia.avramax.dto.auth.LoginResponse;
+import org.crusadia.avramax.dto.auth.LoginUserRequest;
+import org.crusadia.avramax.dto.auth.RegisterUserRequest;
 import org.crusadia.avramax.service.AuthService;
 
 @Path("/api/auth")

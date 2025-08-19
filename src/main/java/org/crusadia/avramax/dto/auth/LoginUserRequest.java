@@ -1,4 +1,4 @@
-package org.crusadia.avramax.dto;
+package org.crusadia.avramax.dto.auth;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

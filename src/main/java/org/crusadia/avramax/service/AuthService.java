@@ -1,8 +1,8 @@
 package org.crusadia.avramax.service;
 
-import org.crusadia.avramax.dto.LoginResponse;
-import org.crusadia.avramax.dto.LoginUserRequest;
-import org.crusadia.avramax.dto.RegisterUserRequest;
+import org.crusadia.avramax.dto.auth.LoginResponse;
+import org.crusadia.avramax.dto.auth.LoginUserRequest;
+import org.crusadia.avramax.dto.auth.RegisterUserRequest;
 
 public interface AuthService {
 

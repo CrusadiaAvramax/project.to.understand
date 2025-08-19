@@ -1,10 +1,8 @@
-package org.crusadia.avramax.dto;
+package org.crusadia.avramax.dto.auth;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
-
-import java.util.Set;
 
 @Data
 public class RegisterUserRequest {
