@@ -7,10 +7,9 @@ import org.crusadia.avramax.dto.UserDto;
 import org.crusadia.avramax.mapper.UserMapper;
 import org.crusadia.avramax.repository.UserRepository;
 import org.crusadia.avramax.service.UserService;
-import org.crusadia.avramax.util.JwtUtil;
 
 import java.util.List;
-import java.util.Map;
+
 
 @ApplicationScoped
 public class UserServiceImpl implements UserService {
@@ -29,9 +28,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto getUser(String token) {
-        Map<String,Object> map = JwtUtil.extractClaims(token);
-        String email = map.get("email").toString();
+    public UserDto getUser(String email) {
+        //Map<String,Object> map = JwtUtil.extractClaims(token);String email = map.get("email").toString();
         return userRepository.findByEmail(email)
                 .map((user)-> userMapper.toDto(user))
                 .orElseThrow( ()-> new EntityNotFoundException("User with email "+email+" not found"));
